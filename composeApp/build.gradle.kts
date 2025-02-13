@@ -62,6 +62,8 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            testImplementation(kotlin("test"))
+            testImplementation(kotlin("test-junit"))
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

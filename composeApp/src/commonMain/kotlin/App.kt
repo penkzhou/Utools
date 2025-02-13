@@ -35,3 +35,26 @@ fun App() {
         }
     }
 }
+
+import androidx.compose.ui.test.junit4.createComposeRule
+import org.junit.Rule
+import org.junit.Test
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.assertIsDisplayed
+
+class AppTest {
+    @get:Rule
+    val composeTestRule = createComposeRule()
+
+    @Test
+    fun testApp() {
+        composeTestRule.setContent {
+            App()
+        }
+
+        composeTestRule.onNodeWithText("Click me!").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Click me!").performClick()
+        composeTestRule.onNodeWithText("Compose: Hello, Android 30!").assertIsDisplayed()
+    }
+}
